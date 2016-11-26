@@ -6,32 +6,29 @@ from mergesort import merge_sort
 from quicksort import quick_sort
 from heapsort import heap_sort
 
-lista = [random.randint(-50, 100) for i in range(10)]
+items = [random.randint(-50, 100) for i in range(10)]
 
-# Zwracane elementy przez poniższe funkcje nie są przechwytywane.
-# Są one uruchamiane tylko aby przeliczyć czas działania danej funkcji.
-
-czas0 = time.time()
-bubble_sort(lista)
-czas1 = time.time()
-insert_sort(lista)
-czas2 = time.time()
-merge_sort(lista)
-czas3 = time.time()
-quick_sort(lista)
-czas4 = time.time()
-heap_sort(lista)
-czas5 = time.time()
-lista.sort()
-czas6 = time.time()
+time0 = time.time()
+bubble_sort(items)
+time1 = time.time()
+insert_sort(items)
+time2 = time.time()
+merge_sort(items)
+time3 = time.time()
+quick_sort(items)
+time4 = time.time()
+heap_sort(items)
+time5 = time.time()
+items.sort()
+time6 = time.time()
 
 print()
-print("              typ              │      czas [ms]      ")
-print("───────────────────────────────┼─────────────────────");
-print("  Sortowanie bąbelkowe         │  {:.15f}".format(czas1 - czas0));
-print("  Sortowanie prze wstawianie   │  {:.15f}".format(czas2 - czas1));
-print("  Sortowanie przez scalenie    │  {:.15f}".format(czas3 - czas2));
-print("  Sortowanie szybkie           │  {:.15f}".format(czas4 - czas3));
-print("  Sortowanie przez kopcowanie  │  {:.15f}".format(czas5 - czas4));
-print("  Sortowanie TIM (wbudowane)   │  {:.15f}".format(czas6 - czas5));
+print("         typ         │      time [ms]      ")
+print("─────────────────────┼─────────────────────");
+print("  Bubble sort        │  {:.15f}".format(time1 - time0));
+print("  Insertion sort     │  {:.15f}".format(time2 - time1));
+print("  Merge sort         │  {:.15f}".format(time3 - time2));
+print("  Quicksort          │  {:.15f}".format(time4 - time3));
+print("  Heapsort           │  {:.15f}".format(time5 - time4));
+print("  Timsort            │  {:.15f}".format(time6 - time5));
 print()
